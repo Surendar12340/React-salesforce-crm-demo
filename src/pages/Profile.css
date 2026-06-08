@@ -1,0 +1,38 @@
+.customer-card {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.customer-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.customer-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customer-card input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.customer-card button {
+  background: #0176d3;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.customer-card button:hover {
+  opacity: 0.9;
+}
