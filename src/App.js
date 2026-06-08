@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Callback from "./Callback";
 import Profile from "./pages/Profile";
+import CustomerImport from "./pages/CustomerImport";
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/callback" element={<Callback />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/customer-import" element={<CustomerImport />} />
+
       </Routes>
     </BrowserRouter>
   );

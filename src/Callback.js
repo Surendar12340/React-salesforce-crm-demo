@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import "./CustomerSearch.css";
 import CustomerAccount from "./pages/CustomerAccount";
 import Home from "./pages/Home";
+import CustomerImport from "./pages/CustomerImport";
 
 
 
@@ -157,7 +158,10 @@ function Callback() {
           >
             Employee Store Relationship
           </li>
-        
+         <button className="sidebar-btn"
+         onClick={() => setActivePage("customerImport")}>
+  Customer Import
+</button>
         </ul>
          <button className="sidebar-logout" onClick={handleLogout}>
     Logout
@@ -264,9 +268,11 @@ function Callback() {
        {/* {activePage === "customer" && <Customer />} */}
 
       {activePage === "customerAccount" && <CustomerAccount />}
+     {activePage === "customerImport" && <CustomerImport />}
 
         {activePage === "profileContact" && (
           <Profile />
+          
         )}
       </div>
     </div>

@@ -11,6 +11,7 @@ const customerAccountRoutes = require("./routes/customerAccountRoutes");
 const interactionRoutes = require("./routes/interactionRoutes");
 const interactionActivityRoutes = require("./routes/interactionActivityRoutes");
 const createCustomerRoutes = require("./routes/createCustomerRoutes");
+const customerImportRouter = require("./routes/customerImportRouter");
 
 
 
@@ -28,6 +29,7 @@ app.use("/api/customer-accounts", customerAccountRoutes);
 app.use("/api/interactions", interactionRoutes);
 app.use("/api/interaction-activities", interactionActivityRoutes);
 app.use("/api/create-customer", createCustomerRoutes);
+app.use("/api/customer-import", customerImportRouter);
 
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");

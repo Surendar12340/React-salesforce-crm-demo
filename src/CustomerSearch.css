@@ -154,3 +154,20 @@ body {
   cursor: pointer;
   font-size: 14px;
 }
+.sidebar-btn {
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sidebar-btn:hover {
+  background: #1d4ed8;
+}
