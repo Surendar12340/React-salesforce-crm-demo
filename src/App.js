@@ -3,6 +3,7 @@ import Login from "./Login";
 import Callback from "./Callback";
 import Profile from "./pages/Profile";
 import CustomerImport from "./pages/CustomerImport";
+import CRMAssistant from "./pages/CRMAssistant";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/callback" element={<Callback />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/customer-import" element={<CustomerImport />} />
+        <Route path="/crm-assistant" element={<CRMAssistant />} />
 
       </Routes>
     </BrowserRouter>

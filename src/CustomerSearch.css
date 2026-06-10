@@ -171,3 +171,30 @@ body {
 .sidebar-btn:hover {
   background: #1d4ed8;
 }
+.view360-btn {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+.customer-card {
+  height: auto !important;
+  min-height: 360px !important;
+  overflow: visible !important;
+  padding-bottom: 40px !important;
+}
+
+.view360-btn {
+  margin-top: 18px !important;
+  padding: 10px 18px !important;
+  background: #2563eb !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  display: block !important;
+}

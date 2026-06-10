@@ -5,7 +5,7 @@ import Employee from "./pages/Employee";
 import Store from "./pages/Store";
 import EmployeeStoreRelationship from "./pages/EmployeeStoreRelationship";
 
-function CustomerSearch() {
+function CustomerSearch({ onView360 }) {
   const [activePage, setActivePage] = useState("customerSearch");
   const [searchText, setSearchText] = useState("");
   const [customers, setCustomers] = useState([]);
@@ -116,17 +116,29 @@ function CustomerSearch() {
 <div className="results">
   {customers.map((customer) => (
     <div className="customer-card" key={customer.Id}>
-      <h1 style={{ color: "red" }}>TEST NEW FILE</h1>
-      <h2>{customer.Name}</h2>
+    
+    
+      <h2>{customer.Name} test123</h2>
+     <p
+  onClick={() => onView360(customer.Id)}
+  style={{ color: "blue", cursor: "pointer", fontWeight: "bold" }}
+>
+  Open Customer 360
+</p>
       <p><strong>Phone:</strong> {customer.Phone__c}</p>
       <p><strong>Industry:</strong> {customer.Industry__c}</p>
       <p><strong>Status:</strong> {customer.Status__c}</p>
       <p><strong>Website:</strong> {customer.Website__c}</p>
       <p><strong>Customer Code:</strong> {customer.Customer_code__c}</p>
       <p><strong>Number:</strong> {customer.Number__c}</p>
+      
+      
+
+
     </div>
   ))}
 </div>
+
           </>
         )}
 
@@ -142,13 +154,13 @@ function CustomerSearch() {
         {activePage === "interactionActivity" && (
           <h2>Interaction Activity Page Coming Soon</h2>
         )}
-        {activePage === "customer" && <h2>Customer Page Coming Soon</h2>}
+        {/* {activePage === "customer" && <h2>Customer Page Coming Soon</h2>}
         {activePage === "customerAccount" && (
           <h2>Customer Account Page Coming Soon</h2>
         )}
         {activePage === "profileContact" && (
           <h2>Profile / Contact Page Coming Soon</h2>
-        )}
+        )} */}
       </div>
     </div>
   );

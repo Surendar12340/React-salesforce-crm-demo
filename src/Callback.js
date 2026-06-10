@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Employee from "./pages/Employee";
 import Store from "./pages/Store";
 import EmployeeStoreRelationship from "./pages/EmployeeStoreRelationship";
@@ -6,10 +7,11 @@ import Lead from "./pages/Lead";
 import Interaction from "./pages/Interaction";
 import InteractionActivity from "./pages/InteractionActivity";
 import Profile from "./pages/Profile";
-import "./CustomerSearch.css";
 import CustomerAccount from "./pages/CustomerAccount";
 import Home from "./pages/Home";
 import CustomerImport from "./pages/CustomerImport";
+import Customer360 from "./pages/Customer360";
+import CustomerSearch from "./CustomerSearch";
 
 
 
@@ -19,6 +21,7 @@ function Callback() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [activePage, setActivePage] = useState("customerSearch");
+  const [selectedCustomerId, setSelectedCustomerId] = useState(null);
   
   const handleLogout = () => {
   localStorage.clear();
@@ -80,12 +83,14 @@ function Callback() {
         <h2>CRM Demo</h2>
 
         <ul>
-          <li
-            className={activePage === "customerSearch" ? "active" : ""}
-            onClick={() => setActivePage("customerSearch")}
-          >
-            Customer Search
-          </li>
+         {activePage === "customer" && (
+  <CustomerSearch
+    onView360={(id) => {
+      setSelectedCustomerId(id);
+      setActivePage("customer360");
+    }}
+  />
+)}
 
           <li
             className={activePage === "home" ? "active" : ""}
@@ -158,10 +163,15 @@ function Callback() {
           >
             Employee Store Relationship
           </li>
-         <button className="sidebar-btn"
+        <li> <button className="sidebar-btn"
          onClick={() => setActivePage("customerImport")}>
   Customer Import
 </button>
+</li>
+<li>
+  <Link to="/crm-assistant">🤖 CRM Assistant</Link>
+</li>
+
         </ul>
          <button className="sidebar-logout" onClick={handleLogout}>
     Logout
@@ -200,6 +210,7 @@ function Callback() {
 
             <div className="search-card">
               <h4>Search Customer</h4>
+             
 
               <div className="search-row">
                 <input
@@ -243,6 +254,24 @@ function Callback() {
       <p>
         <strong>Number:</strong> {account.Number__c || "N/A"}
       </p>
+        <button
+  onClick={() => {
+    setSelectedCustomerId(account.Id);
+    setActivePage("customer360");
+  }}
+  style={{
+    marginTop: "15px",
+    padding: "10px 18px",
+    background: "#2563eb",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer"
+  }}
+>
+  View 360
+</button>
+
     </div>
   ))}
 </div>
@@ -274,6 +303,9 @@ function Callback() {
           <Profile />
           
         )}
+      {activePage === "customer360" && (
+  <Customer360 customerId={selectedCustomerId} />
+)}
       </div>
     </div>
   );
