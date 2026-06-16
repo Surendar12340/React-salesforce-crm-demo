@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import CustomerImport from "./pages/CustomerImport";
 import Customer360 from "./pages/Customer360";
 import CustomerSearch from "./CustomerSearch";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -22,6 +23,7 @@ function Callback() {
   const [loading, setLoading] = useState(false);
   const [activePage, setActivePage] = useState("customerSearch");
   const [selectedCustomerId, setSelectedCustomerId] = useState(null);
+  const navigate = useNavigate();
   
   const handleLogout = () => {
   localStorage.clear();

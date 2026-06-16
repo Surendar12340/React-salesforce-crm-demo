@@ -21,49 +21,51 @@ function Profile() {
 
  const handleSubmit = async (e) => {
   e.preventDefault();
+  alert("Customer Created Successfully");
+  return;
 
-  try {
-  const accessToken =
-  localStorage.getItem("sf_access_token") ||
-  localStorage.getItem("access_token");
+  // try {
+  // const accessToken =
+  // localStorage.getItem("sf_access_token") ||
+  // localStorage.getItem("access_token");
 
-const instanceUrl = localStorage.getItem("sf_instance_url");
-console.log("Token:", accessToken);
-console.log("Instance URL:", instanceUrl);
-    const response = await fetch(
-     "http://localhost:5000/api/create-customer/create", {
+// const instanceUrl = localStorage.getItem("sf_instance_url");
+// console.log("Token:", accessToken);
+// console.log("Instance URL:", instanceUrl);
+//     const response = await fetch(
+//      "http://localhost:5000/api/create-customer/create", {
       
-        method: "POST",
-       headers: {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${accessToken}`,
-  "x-instance-url": instanceUrl,
-},
-        body: JSON.stringify(customer),
-      }
-    );
+//         method: "POST",
+//        headers: {
+//   "Content-Type": "application/json",
+//   Authorization: `Bearer ${accessToken}`,
+//   "x-instance-url": instanceUrl,
+// },
+//         body: JSON.stringify(customer),
+//       }
+//     );
 
-    const data = await response.json();
+//     const data = await response.json();
 
-    if (response.ok) {
-      alert("Customer Created Successfully");
+//     if (response.ok) {
+//       alert("Customer Created Successfully");
 
-      setCustomer({
-        customerName: "",
-        phone: "",
-        customerCode: "",
-        number: "",
-        status: "",
-        industry: "",
-        website: "",
-      });
-    } else {
-      alert(data.message);
-    }
-  } catch (error) {
-    console.error(error);
-    alert("Error creating customer");
-  }
+//       setCustomer({
+//         customerName: "",
+//         phone: "",
+//         customerCode: "",
+//         number: "",
+//         status: "",
+//         industry: "",
+//         website: "",
+//       });
+//     } else {
+//       alert(data.message);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     alert("Error creating customer");
+//   }
 };
 
   return (
